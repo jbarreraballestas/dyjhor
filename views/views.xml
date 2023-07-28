@@ -1,0 +1,62 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="dyjhor.dyjhor_list">
+      <field name="name">Dyjhor list</field>
+      <field name="model">dyjhor.dyjhor</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+          <field name="description"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="dyjhor.product_list">
+      <field name="name">Product list</field>
+      <field name="model">dyjhor.product</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="price"/>
+        </tree>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="dyjhor.action_dyjhor">
+      <field name="name">Dyjhor list</field>
+      <field name="res_model">dyjhor.dyjhor</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="dyjhor.action_product">
+      <field name="name">Dyjhor products</field>
+      <field name="res_model">dyjhor.product</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+
+
+
+    <!-- Top menu item -->
+
+    <menuitem name="Dyjhor" id="dyjhor.menu_root"/>
+
+    <!-- menu categories -->
+
+    <menuitem name="Menu" id="dyjhor.menu_1" parent="dyjhor.menu_root"/>
+
+    <!-- actions -->
+
+    <menuitem name="Dyjhor List" id="dyjhor.dyjhor" parent="dyjhor.menu_1" action="dyjhor.action_dyjhor"/>
+    <menuitem name="Products List" id="dyjhor.products" parent="dyjhor.menu_1" action="dyjhor.action_product"/>
+
+  </data>
+</odoo>
